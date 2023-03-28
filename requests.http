@@ -1,1 +1,8 @@
-GET 
+POST http://localhost:3000/checkins
+
+{
+"beer_id": 2,
+
+
+
+}
