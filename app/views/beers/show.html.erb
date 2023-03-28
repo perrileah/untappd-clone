@@ -1,0 +1,16 @@
+<h1><%=@beer.name%></h1>
+
+
+<p>
+<strong>Brewery: </strong>
+<a href="/breweries/<%= @beer.brewery.id %>"> 
+ <%= @beer.brewery.name %> </a> </p> 
+
+
+<p><strong>Style: </strong><%= @beer.style %></p>
+<p><strong>ABV: </strong><%= @beer.abv %></p>
+
+<p><%= link_to "All Breweries", breweries_path %></p>
+<p><%= link_to "All Beers", beers_path %></p>
+
+<h4>Recent CheckIns</h4>

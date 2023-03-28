@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "beers#index"
   #Users
   post "/users" => "users#create"
 
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   #Breweries
   get "/breweries" => "breweries#index"
   get "/breweries/:id" => "breweries#show"
+  get "brewery_path" => "breweries#show"
   post "/breweries" => "breweries#create"
   patch "/breweries/:id" => "breweries#update"
   delete "breweries/:id" => "breweries#destroy"
