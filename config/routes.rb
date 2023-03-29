@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   #Checkins
   get "/checkins" => "checkins#index"
   get "/checkins/:id" => "checkins#show"
-  post "/checkins" => "checkins#create"
+  get "/new_checkin" => "checkins#new"
+  post "/new_checkin" => "checkins#create"
   patch "/checkins/:id" => "checkins#update"
   delete "checkins/:id" => "checkins#destroy"
 end

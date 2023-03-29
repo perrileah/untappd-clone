@@ -5,8 +5,23 @@ class CheckinsController < ApplicationController
   end
 
   def show
-    @checkin = CheckIn.find_by(id: params[:id])
-    render :show
+  end
+
+  def new
+    @checkin = CheckIn.new(
+      beer_id: params[:beer_id],
+      user_id: params[:user_id],
+      rating: params[:rating],
+      image: params[:image],
+      comment: params[:comment],
+    )
+    @checkin.save
+
+    if @checkin.save
+      flash.alert = "You have successfully added a beer check-in."
+    else
+      flash.alert = "Try again"
+    end
   end
 
   def create
@@ -18,7 +33,12 @@ class CheckinsController < ApplicationController
       comment: params[:comment],
     )
     @checkin.save
-    render :show
+
+    if @checkin.save
+      flash.alert = "You have successfully added a beer check-in."
+    else
+      flash.alert = "Try again"
+    end
   end
 
   def update

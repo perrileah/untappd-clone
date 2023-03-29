@@ -1,17 +1,12 @@
 <h1>New Check-In</h1>
 
-<%= form_with model: @checkin do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </div>
+<%= form_with url: "/new_checkin", method: :post do |form| %>
+  <%= form.label :query, "Select a Beer:" %>
+  <%= form.collection_select :beer_id, Beer.order(:name), :id, :name %>
+<p><%= form.label :rating %>
+<%= form.select :rating, options_for_select(0..5)%></p>
+<p><%= form.label :comment %>
+<%= form.text_area :comment %></p>
 
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<p><%= form.submit "Add Check In" %></p>
 <% end %>
