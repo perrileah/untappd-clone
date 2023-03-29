@@ -1,0 +1,25 @@
+<h1>Check-Ins</h1>
+
+<ul>
+
+<p><strong>Beer: </strong>
+<% @checkins.each do |checkin| %>
+<a href="/beers/<%= checkin.beer.id %>"> <%= checkin.beer.name %> </a>
+
+<p><strong>Brewery: </strong>
+<a href="/breweries/<%= checkin.brewery.id %>"> <%= checkin.brewery.name %> </a>
+
+ <p><strong>Check-In Date: </strong><%= checkin.created_at %></p>
+
+  <p><strong>User: </strong><%= checkin.user.name %></p>
+
+  <p><strong>Rating: </strong><%= checkin.rating %></p>
+
+  <p><strong>Image: </strong><%= checkin.image %></p>
+
+  <p><strong>Comments: </strong><%= checkin.comment %></p>
+  
+  <% end %>
+
+</ul>
+
